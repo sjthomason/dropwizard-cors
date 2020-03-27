@@ -38,6 +38,31 @@
     <tag>HEAD</tag>
   </scm>
 
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/sjthomason/dropwizard-cors/issues</url>
+  </issueManagement>
+
+  <ciManagement>
+    <system>Travis CI</system>
+    <url>https://travis-ci.com/sjthomason/dropwizard-cors</url>
+  </ciManagement>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <site>
+      <id>dropwizard-cors</id>
+      <url>https://github.com/sjthomason/dropwizard-cors</url>
+    </site>
+  </distributionManagement>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
