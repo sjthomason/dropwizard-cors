@@ -1,0 +1,35 @@
+os: linux
+dist: xenial
+language: java
+jdk:
+  - openjdk8
+  - openjdk11
+before_install:
+  - rm ~/.m2/settings.xml || true
+  - ulimit -c unlimited -S
+install: skip
+script:
+  - ./mvnw -V -B -ff verify
+after_success:
+  - bash ci/after_success.sh
+cache:
+  directories:
+    - "$HOME/.m2"
+deploy:
+  - provider: script
+    script: bash ci/deploy-snapshot.sh
+    on:
+      repo: sjthomason/dropwizard-cors
+      tags: false
+      branch: master
+      jdk: openjdk8
+  - provider: script
+    script: bash ci/deploy-release.sh
+    on:
+      repo: sjthomason/dropwizard-cors
+      tags: true
+      jdk: openjdk8
+env:
+  global:
+    - secure: dq7409NzPY2/eCwtJBInMPMgK9bCDe9EN/K0KvIaqds5Uk7oHruS15yA3ZWBSp2PP4yjlIf8kyeTexq9/1Y5jfp7w3W/HckEwVpjMk+zeXHPE3UW8EUQMSW3Qw5XLYFfucJTK80YB0K1RuOMpjfsJqdz6IWZJxTCdUPb8u8aq6FSQ/3pgGBmEbY2d1IhOGX3RNaJxph7PeHH2vY+8mXKnvkgfcqU0oLCzAUt2wtPyKmJ47Y8KcJmgfOls5ziCZo6g75lMpGnr1kMwJRVkgyBo6VFvrME6h5Q2VuWwt4D/IvcdGoY4iikYNIpaot7UaYJ4bQzdkTiVvruOaTW2jeBb6Q9gOZf8KrmBFBdKXPq8/SuhEUzWiDUqnKofi7uM8R6CKXtGVMi1eylcoieM6i3244+2/uQqf37O5MxoO4mBMhMnKqHadG7f+kXjApM0haL6KylciBUu/7O5cDO+IeF+VVt08wfE0EJG8uLCVJTjAuOA5wHw4Uw81+IkajT45MFWVzsqdh5lE+6eeQp6rqh+NN/P5MpNyVDQUVDyYTdIdJKNViTWPojvov/ufiTGJeXvoLbpRWHtPYXxi9F+EvHp7lER12hjV7eNmI4qqblNDnvsEymqyioBlLQDgQuZyCu8ZHTTCjSU/SwqxL7lBR+437RkkinKSkiKWVdnZYod60=
+    - secure: TYhHsfVbeOb9e638yaO5xNYz176WLPUPsLbJ06pp4I8KxiTn2HBE0KyFb3EquOKXIE8aia7EFxcmCYPTXKc+YMG8WHsQ2H2/e58NhkBtK2MC5AVTyZsHkRCBc0ulGUFwpV11Y7wzknhyvzHPmEgXxOYFKzZe68hku4nKFI3JS9HK6d2stJvIdwa8nDtLH9t/Bkk+MkB30Y+G1C6mDmWPCeKX4Z8r686zAizgbX9BNPpSd7aXdFtc/vWJxRta9lAXpM3XunBtyl+M536XgQ+jqSdwfbpZ4P/LWlxfDBHYnxxkUvfIbqcGh8IJ2lcjxIpqTwpwsQH6U06nYP6evFgXUzdQfaqoaAKJYBMpuD79oLYZS2Ggk4/XAa4A6LH04PJMVs3IO4+DQRRVGyNARszPt9eT3eH6VaNKi5Dq5kDb79tjeO4WXiuv0s8OLV8x8wwfXQt+uvoMyPSBeR3eXvV9ghWAd7Oof1Y2Ck6S8Cms6g77SaQ+WEPSTZ4TKFEB/ks34Di1EmQZ7fBhqpiqoTHSsZo2OzYx4BCxOt1SxKtE8n371N8xvrKJwguWopaM4NwnZluNPaxpehbi2nO3gMkWMcAbbLUSnLUDodXio98gA7cvySI0z+All2yrOffVUeutBGtZTX6qviA7JLnpxNKP7tlDnrrcNSJJqqJFQjbBJOs=

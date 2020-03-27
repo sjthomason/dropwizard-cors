@@ -1,0 +1,18 @@
+allowedOrigins: "*"
+allowedHeaders:
+  - Accept
+  - Accept-Encoding
+  - Authorization
+  - Content-Type
+  - Origin
+  - User-Agent
+  - X-Requested-With
+allowedMethods:
+  - DELETE
+  - GET
+  - OPTIONS
+  - POST
+  - PUT
+chainPreflight: true
+preflightMaxAge: 3600
+urlPattern: "/resources/*"
