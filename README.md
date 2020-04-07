@@ -1,7 +1,7 @@
 Dropwizard CORS
 ===================
-[![Build Status](https://travis-ci.org/sjthomason/dropwizard-cors.svg?branch=master)](https://travis-ci.org/sjthomason/dropwizard-cors)
-[![Maven Central](https://img.shields.io/maven-central/v/io.dropwizard.modules/dropwizard-protobuf.svg?style=flat-square)](https://maven-badges.herokuapp.com/maven-central/io.wtsky.dropwizard/dropwizard-cors/)
+[![Build Status](https://travis-ci.com/sjthomason/dropwizard-cors.svg?branch=master)](https://travis-ci.com/sjthomason/dropwizard-cors)
+[![Maven Central](https://img.shields.io/maven-central/v/io.wtsky.dropwizard/dropwizard-cors.svg?style=flat-square)](https://maven-badges.herokuapp.com/maven-central/io.wtsky.dropwizard/dropwizard-cors/)
 [![GitHub license](https://img.shields.io/github/license/sjthomason/dropwizard-cors.svg?style=flat-square)](https://github.com/sjthomason/dropwizard-cors/tree/master)
 
 
